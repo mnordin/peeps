@@ -1,0 +1,10 @@
+<h2>List of Peeps</h2>
+<p>Study them before the game starts</p>
+<%= link_to "Edit your profile", edit_your_user_path %>
+<ul>
+    <% @users.each do |user| %>
+        <li>
+            <%= link_to image_tag(user.photo(:thumb), :alt => user.name), user_path(user) %>
+        </li>
+    <% end %>
+</ul>

@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+    <b>Name:</b>
+    <%= @user.name %>
+</p>
+
+<p>
+    <b>Photo:</b>
+    <%= image_tag @user.photo(:slideshow) %>
+</p>
+
+<p><%= link_to "Back to list of users", users_path %>
