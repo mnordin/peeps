@@ -3,6 +3,7 @@ Peeps::Application.routes.draw do
   match "/sessions/google_apps_callback" => "sessions#google_apps_callback", :as => "google_app_callback"
   match "/sessions/destroy" => "sessions#destroy"
   
+  #match "/auth/:provider/callback" => "sessions#callback", :as => "provider_callback"
   
   match "/users/me/edit" => "users#edit", :as => "edit_your_user"
   match "/users/me/get_photos" => "users#get_photos"
