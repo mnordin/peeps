@@ -19,15 +19,9 @@ class SessionsController < ApplicationController
   end
 
   def facebook_callback
-    logger.info "*****************************************"
-    logger.info request.env["omniauth.auth"].to_yaml
-    logger.info "*****************************************"
     user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"])
-    logger.info "*****************************************"
-    logger.info user.to_yaml
-    logger.info "*****************************************"
     user.fetch
-    render :json => user.feed
+    render :json => user.photos
   end
 
   def failure
