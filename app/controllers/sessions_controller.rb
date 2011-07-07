@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def facebook_callback
-    redirect_to edit_your_profile_path
+    redirect_to edit_your_user_path
   end
 
   def failure
