@@ -54,3 +54,8 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+.index-photos{
+    max-width: 120px;
+    max-height: 120px;
+}
