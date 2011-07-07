@@ -18,9 +18,10 @@ class SessionsController < ApplicationController
   def facebook_callback
     user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"])
     user.fetch
-    render :json => user.photos.each do |photo|
+    photos << user.photos.each do |photo|
       photo.images
     end
+    render :json => photos
   end
 
   def failure
