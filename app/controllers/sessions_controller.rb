@@ -1,25 +1,25 @@
 class SessionsController < ApplicationController
 
   def callback
-    if params[:provider] == "google_apps"
-      google_apps_callback
-    elsif params[:provider] == "facebook"
-      facebook_callback
-    end
-  end
-
-  def google_apps_callback
     if request.env["omniauth.auth"]
-      restrict_blocked_google_accounts
-      session[:user] = User.find_or_create_from_omniauth(request.env["omniauth.auth"])
-      redirect_to root_path
+      if params[:provider] == "google_apps"
+        google_apps_callback
+      elsif params[:provider] == "facebook"
+        facebook_callback
+      end
     else
       redirect_to root_path, :notice => "Omniauth failure"
     end
   end
 
+  def google_apps_callback
+    restrict_blocked_google_accounts
+    session[:user] = User.find_or_create_from_omniauth(request.env["omniauth.auth"])
+    redirect_to root_path
+  end
+
   def facebook_callback
-    
+    render :json => "Ok, this is a great work in progress."
   end
 
   def failure
