@@ -33,6 +33,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_email(session[:user][:email])
+    logger.info "****************************************"
+    logger.info request.env["omniauth.auth"]
+    logger.info "****************************************"
     if request.env["omniauth.auth"]
       user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"])
       user.fetch
