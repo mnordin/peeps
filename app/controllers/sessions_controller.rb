@@ -19,8 +19,11 @@ class SessionsController < ApplicationController
   end
 
   def facebook_callback
+    logger.info "*****************************************"
+    logger.info request.env["omniauth.auth"].to_yaml
+    logger.info "*****************************************"
     client = FBGraph::Client.new(:client_id => "194756060575091",:secret_id =>"285cebd99fba497fe071ecb221733775" ,:token => request.env["omniauth.auth"]["credentials"]["token"])
-    render :json => client.selection.me.photos
+    render :json => client.selection.me.photos.yaml
   end
 
   def failure
