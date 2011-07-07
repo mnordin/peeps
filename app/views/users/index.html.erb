@@ -4,7 +4,7 @@
 <ul>
     <% @users.each do |user| %>
         <li>
-            <%= link_to image_tag(user.photo(:thumb), :alt => user.name), user_path(user) %>
+            <%= link_to user.name, user_path(user) %>
         </li>
     <% end %>
 </ul>
