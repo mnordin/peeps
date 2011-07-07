@@ -31,7 +31,7 @@
   <% if @photos %>
       <% @photos.each do |photo| %>
         <label>
-          <%= f.checkbox :photo_url, photo[0].source %>
+          <%= f.check_box :photo_url, photo[0].source %>
           <%= image_tag photo[2].source %>
         </label>
       <% end %>
