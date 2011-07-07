@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
     user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"])
     user.fetch
     @photos = user.photos.each do |photo|
-      photo.image
+      photo.images
     end
     logger.info "*********************************"
     logger.info @photos
