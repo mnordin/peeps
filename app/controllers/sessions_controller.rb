@@ -24,6 +24,9 @@ class SessionsController < ApplicationController
     @photos = user.photos.each do |photo|
       photo.image
     end
+    logger.info "*********************************"
+    logger.info @photos
+    logger.info "*********************************"
     return_to edit_your_user_path
   end
 
