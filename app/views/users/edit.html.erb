@@ -30,11 +30,9 @@
 
   <% if @photos %>
       <% @photos.each do |photo| %>
-        <label>
+        <pre>
             <%= photo.inspect %>
-          <%= #f.check_box :photo_url, photo[0].source %>
-          <%= #image_tag photo[2].source %>
-        </label>
+        </pre>
       <% end %>
   <% else %>
     <%= link_to "Get images from Facebook", "/auth/facebook" %>
