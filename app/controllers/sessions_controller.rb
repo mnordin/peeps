@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     logger.info user.to_yaml
     logger.info "*****************************************"
     user.fetch
-    render :json => user.to_yaml
+    render :json => user.photos.to_yaml
   end
 
   def failure
