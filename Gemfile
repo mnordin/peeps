@@ -10,9 +10,6 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # Omniauth with Google Apps
 gem 'omniauth'
 
-# FBGraph with Facebook
-gem 'fb_graph'
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
