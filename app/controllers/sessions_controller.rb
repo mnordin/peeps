@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def facebook_callback
-    render :json => "Ok, this is a great work in progress."
+    render :json => request.env["omniauth.env"].to_yaml
   end
 
   def failure
