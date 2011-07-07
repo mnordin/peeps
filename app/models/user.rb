@@ -5,10 +5,6 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def photo_url
-    self.photo_url ||= ""
-  end
-
   def self.find_or_create_by_email(hash)
     email = hash["user_info"]["email"]
     if user = User.find_by_email(email)
