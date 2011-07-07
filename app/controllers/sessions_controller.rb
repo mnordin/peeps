@@ -19,9 +19,8 @@ class SessionsController < ApplicationController
   end
 
   def facebook_callback
-    access_token = "194756060575091|4ec8fae636eba5e28c59b52c.0-697496456|xVt6VVqFPgSMKtRu83yJlgqJ9Tw"
-    user = FbGraph::User.me(access_token)
-    render :json => user.to_yaml
+    client = FBGraph::Client.new(:client_id => "194756060575091",:secret_id =>"285cebd99fba497fe071ecb221733775" ,:token => request.env["omniauth.auth"]["credentials"]["token"])
+    render :json => client.selection.me.photos
   end
 
   def failure
