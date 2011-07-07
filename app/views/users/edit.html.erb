@@ -22,11 +22,22 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
-    
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+
+  <% if @photos %>
+      <% @photos.each do |photo| %>
+        <label>
+          <%= f.checkbox :photo_url, photo[0].source %>
+          <%= image_tag photo[2].source %>
+        </label>
+      <% end %>
+  <% else %>
+    <%= link_to "Get images from Facebook", "/auth/facebook" %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
@@ -34,12 +45,6 @@
 <% end %>
 
 
-<% if @photos %>
-<pre>
-    <%= @photos.inspect %>
-</pre>
-<% else %>
-  <%= link_to "Get images from Facebook", "/auth/facebook" %>
-<% end %>
+
 
 <%= link_to 'Back', users_path %>
