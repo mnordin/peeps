@@ -30,7 +30,10 @@
 
   <% if @photos %>
       <% @photos.each do |photo| %>
-        <%= image_tag photo[3].source %>
+        <label>
+            <%= image_tag photo[3].source %>
+            <%= f.radio_button :photo_url, photo[0].source %>
+        </label>
       <% end %>
   <% else %>
     <%= link_to "Get images from Facebook", "/auth/facebook" %>
