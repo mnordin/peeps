@@ -22,8 +22,9 @@ class SessionsController < ApplicationController
     logger.info "*****************************************"
     logger.info request.env["omniauth.auth"].to_yaml
     logger.info "*****************************************"
-    user = FbGraph::User.fetch("me", request.env["omniauth.auth"]["credentials"]["token"].to_s)
-    render :json => user.to_yaml
+    user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"].to_s)
+    user.fetch
+    render :json => user.collection.to_yaml
   end
 
   def failure
