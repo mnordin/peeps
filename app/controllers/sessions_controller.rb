@@ -19,8 +19,8 @@ class SessionsController < ApplicationController
   end
 
   def facebook_callback
-    token = request.env["omniauth.auth"]["credentials"]["token"]
-    user = FbGraph::User.me(token)
+    access_token = "194756060575091|4ec8fae636eba5e28c59b52c.0-697496456|xVt6VVqFPgSMKtRu83yJlgqJ9Tw"
+    user = FbGraph::User.me(access_token)
     user.fetch
     render :json => user.to_yaml
   end
