@@ -31,8 +31,8 @@
   <% if @photos %>
       <% @photos.each do |photo| %>
         <label>
-            <%= image_tag photo[3].source %>
             <%= f.radio_button :photo_url, photo[0].source %>
+            <%= image_tag photo[3].source %>
         </label>
       <% end %>
   <% else %>
