@@ -22,8 +22,7 @@ class SessionsController < ApplicationController
     logger.info "*****************************************"
     logger.info request.env["omniauth.auth"].to_yaml
     logger.info "*****************************************"
-    token = "194756060575091|4ec8fae636eba5e28c59b52c.0-697496456|xVt6VVqFPgSMKtRu83yJlgqJ9Tw"
-    user = FbGraph::User.me(token)
+    user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"])
     user.fetch
     render :json => user.photos.to_yaml
   end
