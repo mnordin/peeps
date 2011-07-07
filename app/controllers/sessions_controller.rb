@@ -1,5 +1,3 @@
-require 'net/http'
-
 class SessionsController < ApplicationController
 
   def callback
@@ -24,9 +22,8 @@ class SessionsController < ApplicationController
     logger.info "*****************************************"
     logger.info request.env["omniauth.auth"].to_yaml
     logger.info "*****************************************"
-    url = "https://graph.facebook.com/me/photos?access_token=#{request.env["omniauth.auth"]["credentials"]["token"]}"
-    resp = Net::HTTP.get_response(URI.parse(url))
-    render :json => resp.body.to_yaml
+    user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"])
+    render :json => user.to_yaml
   end
 
   def failure
