@@ -30,7 +30,8 @@
 
   <% if @photos %>
       <% @photos.each do |photo| %>
-        <%= image_tag photo.first.source %>
+        <%= image_tag photo[3].source %>
+        <%= #image_tag photo.first.source %>
       <% end %>
   <% else %>
     <%= link_to "Get images from Facebook", "/auth/facebook" %>
