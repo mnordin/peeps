@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     logger.info "*********************************"
     logger.info @photos
     logger.info "*********************************"
-    return_to edit_your_user_path
+    redirect_to edit_your_user_path
   end
 
   def failure
