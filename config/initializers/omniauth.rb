@@ -1,4 +1,4 @@
 Rails.configuration.middleware.use OmniAuth::Builder do
   provider :google_apps, nil, {:callback_path => "/auth/google_apps/callback", :domain => 'newsdesk.se'}
-  provider :facebook, "194756060575091", "285cebd99fba497fe071ecb221733775", :scope => "user_photos,friends_photos,status_update,friends_status,offline_access"
+  provider :facebook, "194756060575091", "285cebd99fba497fe071ecb221733775", :scope => "user_about_me,user_activities,user_birthday,user_checkins,user_education_history,user_events,user_groups,user_groups,user_interests,user_likes,user_location,user_notes,user_online_presence,user_photo_video_tags,user_photos,friends_photos,friends_photo_video_tags,friends_online_presence,user_relationship_details,user_religion_politics,user_status,user_videos,user_website,user_work_history,email,read_friendlists"
 end
