@@ -2,11 +2,8 @@ class SessionsController < ApplicationController
 
   def callback
     if request.env["omniauth.auth"]
-      if params[:provider] == "google_apps"
-        google_apps_callback
-      elsif params[:provider] == "facebook"
-        facebook_callback
-      end
+      google_apps_callback if params[:provider] == "google_apps"
+      facebook_callback if params[:provider] == "facebook"
     else
       redirect_to root_path, :notice => "Omniauth failure"
     end
@@ -21,13 +18,9 @@ class SessionsController < ApplicationController
   def facebook_callback
     user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"])
     user.fetch
-    @photos = user.photos.each do |photo|
+    render :json => user.photos.each do |photo|
       photo.images
     end
-    logger.info "*********************************"
-    logger.info @photos
-    logger.info "*********************************"
-    redirect_to edit_your_user_path
   end
 
   def failure
