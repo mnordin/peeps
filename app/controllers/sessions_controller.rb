@@ -21,7 +21,10 @@ class SessionsController < ApplicationController
   def facebook_callback
     user = FbGraph::User.me(request.env["omniauth.auth"]["credentials"]["token"])
     user.fetch
-    render :json => user.photos
+    @photos = user.photos.each do |photo|
+      photo.image
+    end
+    return_to edit_your_user_path
   end
 
   def failure

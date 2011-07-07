@@ -2,4 +2,11 @@
 
 <%= render 'form' %>
 
+<% if @photos %>
+<pre>
+    @PHOTOS!
+    <%= @photos.inspect %>
+</pre>
+<% end %>
+
 <%= link_to 'Back', users_path %>
