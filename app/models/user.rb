@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def self.find_or_create_from_omniauth(hash)
+  def self.find_or_create_by_email(hash)
     email = hash["user_info"]["email"]
     if user = User.find_by_email(email)
       return user

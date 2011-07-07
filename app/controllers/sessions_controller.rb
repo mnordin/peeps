@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
   def google_apps_callback
     restrict_blocked_google_accounts
-    session[:user] = User.find_or_create_from_omniauth(request.env["omniauth.auth"])
+    session[:user] = User.find_or_create_by_email(request.env["omniauth.auth"])
     redirect_to root_path
   end
 
