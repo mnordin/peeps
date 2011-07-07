@@ -39,6 +39,7 @@ class UsersController < ApplicationController
       @photos = user.photos.map do |photo|
         photo.images
       end
+      logger.info @photos
     end
   end
 
