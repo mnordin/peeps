@@ -28,6 +28,11 @@
     <%= f.text_field :email %>
   </div>
 
+  <div class="field">
+    <%= f.label :locale %><br />
+    <%= f.select :locale, locales.map{|l| [l.values.to_s, l.keys] } %>
+  </div>
+
   <% if @photos %>
       <% @photos.each do |photo| %>
         <label>
