@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_authed_user
 
   def index
-    @users = User.all.random
+    @users = User.all.randomize
   end
 
   def show
