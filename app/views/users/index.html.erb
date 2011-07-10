@@ -1,12 +1,31 @@
 <h2>List of Peeps</h2>
 <p>Study them before the game starts</p>
 <%= link_to "Edit your profile", edit_your_user_path %>
-<ul>
+<a href="#" id="play">Play</a>
+<ul id="peeps">
     <% @users.each do |user| %>
-        <% if user.has_photo? %>
+        <% if user.photo? %>
             <li>
-                <%= link_to(image_tag(user.photo_url || "", :alt => user.name, :class => "index-photos"), user_path(user)) %>
+                <%= link_to(image_tag(user.photo, :alt => user.name, :class => "index-photos"), user_path(user)) %>
             </li>
         <% end %>
+        
+        
+        <ul>
+                    <li>
+                        <a href="/users/6"><img alt="Mårten Nilsson" data-first-name="Mårten" data-last-name="Nilsson" class="index-photos" src="http://a2.sphotos.ak.fbcdn.net/hphotos-ak-snc1/5400_126714897329_647812329_2927875_1754376_n.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="/users/1"><img alt="Markus Nordin" data-first-name="Markus" data-last-name="Nordin" class class="index-photos" src="https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash4/268518_10150233280002120_706342119_7818553_4089366_n.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="/users/3"><img alt="Jonas Forsberg" data-first-name="Jonas" data-last-name="Forsberg" class class="index-photos" src="https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-snc4/148624_442217171055_703401055_5750498_4800285_n.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="/users/5"><img alt="Joakim Westerlund" data-first-name="Joakim" data-last-name="Westerlund" class class="index-photos" src="http://a8.sphotos.ak.fbcdn.net/hphotos-ak-snc4/38416_453396580399_548750399_6633612_366876_n.jpg"></a>
+                    </li>
+        </ul>
+        
+        
     <% end %>
 </ul>

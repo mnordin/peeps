@@ -5,10 +5,10 @@
     <%= @user.name %>
 </p>
 
-<% if @user.has_photo? %>
+<% if @user.photo? %>
 <p>
     <b>Photo:</b>
-    <%= image_tag @user.photo_url %>
+    <%= image_tag @user.photo %>
 </p>
 <% end %>
 

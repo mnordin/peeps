@@ -1,9 +1,9 @@
 body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
-  line-height: 18px;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size:   24px;
+  line-height: 30px;
 }
 
 pre {
@@ -55,7 +55,52 @@ div.field, div.actions {
   list-style: square;
 }
 
+
 .index-photos{
     max-width: 120px;
     max-height: 120px;
+}
+
+#play-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.9);
+}
+#currentPeepImage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 600px;
+    left: 50%;
+    margin-left: -250px;
+}
+#guess-wrapper{
+    position: absolute;
+    background: #DD3920;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 430px;
+    height: 100px;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -200px;
+    box-shadow: 0 0 20px #000;
+}
+#guess-wrapper label{
+    color: #000;
+    font-weight: bold;
+}
+#guess-wrapper input[type=submit]{
+    display: none;
+}
+#guess{
+    width: 400px;
+    padding: 10px;
+    font-family: "helvetica neue", helvetica, arial, sans-serif;
+    font-weight: 300;
+    font-size: 30px;
 }

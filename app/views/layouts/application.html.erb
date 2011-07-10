@@ -3,12 +3,25 @@
 <head>
   <title>Peeps</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag :all %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 
 <%= yield %>
+
+<div id="play-wrapper">
+    <div id="peep">
+        <img src="#" id="currentPeepImage" width="300" height="400" />
+    </div>
+    <div id="guess-wrapper">
+        <form action="" method="get" id="guess-form">
+            <label for="guess">What's my name?</label>
+            <input type="text" id="guess"></input>
+            <input type="submit"></input>
+        </form>
+    </div>
+</div>
 
 <div class="session">
     <h4>session:</h4>
