@@ -3,7 +3,7 @@ var currentPeepImage;
 var peeps = [];
 
 function play(){
-    $("html").addClass("playing");
+    $("body").addClass("playing");
     $("#guess").focus();
 
     shuffle();
@@ -39,11 +39,21 @@ function success(){
     changePeep();
 }
 
+function quit(){
+    $("body").removeClass("playing");
+}
+
 $(document).ready(function(){
-    $("#guess-form").submit(function(){
-        guess();
-        return false;
+    $("#play").click(function(ev){
+        play();
+        ev.preventDefault();
     });
-    $("#play").click(play());
-    play();
+    $("#quit-playing").click(function(ev){
+        quit();
+        ev.preventDefault();
+    });
+    $("#guess-form").submit(function(ev){
+        guess();
+        ev.preventDefault();
+    });
 });

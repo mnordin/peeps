@@ -62,12 +62,16 @@ div.field, div.actions {
 }
 
 #play-wrapper{
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,.9);
+}
+.playing #play-wrapper{
+    display: block;
 }
 #currentPeepImage{
     position: absolute;
