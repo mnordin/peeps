@@ -5,8 +5,12 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def has_photo?
+  def photo?
     !photo_url.nil?
+  end
+
+  def photo
+    photo_url
   end
 
   def self.find_or_create_by_email(hash)
