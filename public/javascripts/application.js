@@ -19,14 +19,14 @@ function shuffle(){
 };
 
 function changePeep(){
-    currentFirstName = peeps[0][0];
+    currentFirstName = peeps[0][0].toLowerCase();
     currentPeepImage = peeps[0][1];
     $("#currentPeepImage").attr("src", peeps[0][1]);
 }
 
 function guess(){
     guessed_name = $("#guess").val();
-    if(guessed_name.match(currentFirstName)){
+    if(guessed_name.toLowerCase().match(currentFirstName)){
         success();
     };
 }
