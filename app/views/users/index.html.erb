@@ -6,7 +6,7 @@
     <% @users.each do |user| %>
         <% if user.photo? %>
             <li>
-                <%= link_to(image_tag(user.photo, :alt => user.name, :class => "index-photos"), user_path(user)) %>
+                <%= link_to(image_tag(user.photo, :alt => user.name, :class => "index-photos", "data-first-name" => user.first_name, "data-last-name" => user.last_name), user_path(user)) %>
             </li>
         <% end %>
         
