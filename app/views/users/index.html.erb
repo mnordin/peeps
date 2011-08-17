@@ -1,13 +1,9 @@
 <div id="page-wrapper">
-    <h2>List of Peeps</h2>
-    <p>Study them before the game starts</p>
-    <%= link_to "Edit your profile", edit_your_user_path %>
-    <a href="#" id="play">Play</a>
     <ul id="peeps">
         <% @users.each do |user| %>
             <% if user.photo? %>
                 <li>
-                    <%= link_to(image_tag(user.photo, :alt => user.name, :class => "index-photos", "data-first-name" => user.first_name, "data-last-name" => user.last_name), user_path(user)) %>
+                    <%= image_tag(user.photo, :alt => user.name, :class => "index-photos ui-droppable", "data-name" => user.name) %>
                 </li>
             <% end %>
         <% end %>

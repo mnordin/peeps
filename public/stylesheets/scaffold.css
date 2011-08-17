@@ -1,6 +1,7 @@
+* { margin: 0; padding: 0; }
 body { 
-    background-color: #222; 
-    color: #bbb; 
+    background-color: #dfdfdf; 
+    color: #000;
 }
 
 body, p, ol, ul, td {
@@ -51,80 +52,54 @@ body, p, ol, ul, td {
     font-size: 12px;
     list-style: square;
 }
-
 #peeps li {
     list-style: none;
 }
-
 .index-photos{
     max-width: 400px;
     max-height: 400px;
     float: left;
-    margin: 20px;
-}
-
-#play-wrapper{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.9);
-}
-.playing #play-wrapper{
-    display: block;
-}
-#currentPeepImage{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 500px;
-    height: 600px;
-    left: 50%;
-    margin-left: -250px;
-}
-#guess-wrapper{
-    position: absolute;
-    background: #DD3920;
-    border-radius: 10px;
-    padding: 10px 20px;
-    width: 430px;
-    height: 100px;
-    bottom: 50px;
-    left: 50%;
-    margin-left: -200px;
-    box-shadow: 0 0 20px #000;
-}
-#guess-wrapper label{
-    color: #000;
-    font-weight: bold;
-}
-#guess-wrapper input[type=submit]{
-    display: none;
-}
-#guess{
-    width: 400px;
-    padding: 10px;
-    font-family: "helvetica neue", helvetica, arial, sans-serif;
-    font-weight: 300;
-    font-size: 30px;
+    margin: 20px 0 0 20px;
 }
 #game-sidebar{
     position: fixed;
     top: 0;
     right: 0;
     height: 100%;
-    width: 180px;
-    background: #555;
+    width: 220px;
+    background: #fff;
     font-size: 18px;
     padding: 10px;
+    border-left: 4px solid #DD3920;
+}
+#logo{
+    padding-top: 35px;
+    height: 40px;
+    background: url(/images/mynewsdesk.png) no-repeat 0 0;
+    text-align: right;
 }
 #game-sidebar ul, #peeps ul{
     padding-left: 0;
 }
 #game-sidebar li{
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #000;
     font-size: 14px;
     font-weight: bold;
     list-style: none;
+    padding: 0 6px 0;
+    background: #7DCDEF;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}
+.ui-draggable-dragging{
+    box-shadow: 0 0 20px #000;
+}
+.dropped-outside-sidebar{
+    position: relative;
+}
+.dropped-inside-sidebar{
+    position: fixed;
 }
