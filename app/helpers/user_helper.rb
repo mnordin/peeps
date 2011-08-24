@@ -1,7 +1,7 @@
 module UserHelper
 
   def me
-    User.find_by_email(session[:user][:email])
+    User.find(session[:user_id])
   end
 
   def locales

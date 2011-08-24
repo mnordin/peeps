@@ -58,8 +58,7 @@ body, p, ol, ul, td {
 .index-photos{
     max-width: 340px;
     max-height: 340px;
-    float: left;
-    margin: 10px 0 0 10px;
+    margin: 10px;
     border: 10px solid #dfdfdf;
 }
 #game-sidebar{

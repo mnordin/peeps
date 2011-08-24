@@ -7,7 +7,7 @@ Peeps.game = (function(){
     var setup = function(parent){
         parent.imagesLoaded(function(){
             parent.masonry({
-                itemSelector : 'img',
+                itemSelector : 'li',
                 columnWidth : 20
             });
         });

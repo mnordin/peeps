@@ -6,12 +6,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_email(session[:user][:email])
+    @user = User.find(session[:user_id])
     if session[:fb_access_token]
       user = FbGraph::User.me(session[:fb_access_token])
       user.fetch
-      @photos = user.photos.map { |photo| photo.images }
-      logger.info @photos
+      #@photos = user.photos.map { |photo| photo.images }
+      #logger.info @photos
+      @albums = user.albums.select { |a| a.name == "Profile pictures" }
+      logger.info @albums
     end
   end
 
@@ -32,6 +34,6 @@ class UsersController < ApplicationController
 
   private
   def require_authed_user
-    redirect_to "/auth/google_apps" if session[:user].nil?
+    redirect_to "/auth/google_apps" if session[:user_id].nil?
   end
 end
