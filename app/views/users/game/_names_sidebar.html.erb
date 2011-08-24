@@ -2,6 +2,8 @@
 <%= link_to "Edit your profile", edit_your_user_path %>
 <ul id="names">
 <% @users.each do |user| %>
+    <% if user.photo? %>
     <li class="ui-draggable"><%= user.name %></li>
+    <% end %>
 <% end %>
 </ul>
