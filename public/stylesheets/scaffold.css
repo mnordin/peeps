@@ -56,8 +56,8 @@ body, p, ol, ul, td {
     list-style: none;
 }
 .index-photos{
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 320px;
+    max-height: 320px;
     float: left;
     margin: 10px 0 0 10px;
     border: 10px solid #dfdfdf;
