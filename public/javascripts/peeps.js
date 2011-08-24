@@ -28,8 +28,8 @@ Peeps.game = (function(){
                         $drag.addClass("correct");
                         $(this).after($drag.css({
                             zIndex: 10,
-                            top: $(this).position().top + $(this).height()/2,
-                            left: $(this).position().left + $(this).width()/2
+                            top: $(this).position().top + $(this).height()/2 - $drag.height()/2,
+                            left: $(this).position().left + $(this).width()/2 - $drag.width()/2
                         }).draggable("destroy"));
                     }
                 }
