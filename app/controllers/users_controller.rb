@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       user.fetch
       #@photos = user.photos.map { |photo| photo.images }
       #logger.info @photos
-      @albums = user.albums.select { |a| a.name == "Profile pictures" }
+      @albums = user.albums
       logger.info @albums
     end
   end
