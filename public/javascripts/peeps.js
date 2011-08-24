@@ -4,6 +4,14 @@ if(!Peeps){
 };
 
 Peeps.game = (function(){
+    var setup = function(parent){
+        parent.imagesLoaded(function(){
+            parent.masonry({
+                itemSelector : 'img',
+                columnWidth : 20
+            });
+        });
+    };
     var init = function(){
         $(".ui-draggable").draggable({
             cursor: "move"
@@ -11,10 +19,19 @@ Peeps.game = (function(){
         $(".ui-droppable").each(function(){
             var name = $(this).data("name");
             $(this).droppable({
-                accept: findMatchingDroppableElement(name),
                 drop: function(event, ui){
-                    $(this).addClass("correct");
-                    console.log("CORRECT!");
+                    var $drag = $(ui.draggable),
+                        $drop = $(this);
+                    if($drop.data("name") !== $drag.html()){
+                        $drag.addClass("incorrect");
+                    }else{
+                        $drag.addClass("correct");
+                        $(this).after($drag.css({
+                            zIndex: 10,
+                            top: $(this).position().top + $(this).height()/2,
+                            left: $(this).position().left + $(this).width()/2
+                        }).draggable("destroy"));
+                    }
                 }
             });
         });
@@ -25,21 +42,15 @@ Peeps.game = (function(){
     var play = function(){
         $("body").addClass("playing");
     };
-    var guess = function(draggable, droppable){
-        console.log("dropped!");
-        if(droppable.data("name") === droppable.html()){
-            console.log("correct!");
-            return true;
-        };
-    };
     var quit = function(){
         $("body").removeClass("playing");
     };
     return{
+        setup: setup,
         init: init
     };
 })();
 $(document).ready(function(){
+    Peeps.game.setup($('#peeps'));
     Peeps.game.init();
-    console.log($("#peeps").find($(".ui-draggable:contains('Markus Nordin')")));
 });

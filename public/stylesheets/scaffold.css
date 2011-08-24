@@ -59,7 +59,8 @@ body, p, ol, ul, td {
     max-width: 400px;
     max-height: 400px;
     float: left;
-    margin: 20px 0 0 20px;
+    margin: 10px 0 0 10px;
+    border: 10px solid #dfdfdf;
 }
 #game-sidebar{
     position: fixed;
@@ -94,12 +95,28 @@ body, p, ol, ul, td {
     -webkit-border-radius: 15px;
     border-radius: 15px;
 }
+#game-sidebar li.incorrect{
+    background: red;
+}
+#game-sidebar li.correct{
+    background: green;
+}
+.ui-draggable{
+    cursor: move;
+}
 .ui-draggable-dragging{
-    box-shadow: 0 0 20px #000;
+    box-shadow: 0 0 10px #000;
 }
-.dropped-outside-sidebar{
-    position: relative;
+#peeps li li.correct{
+    background: green;
+    padding: 2px;
+    color: #000;
+    width: auto;
+    display: inline;
 }
-.dropped-inside-sidebar{
-    position: fixed;
+.index-photos.correct{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 10px solid green;
 }
