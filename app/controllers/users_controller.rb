@@ -12,12 +12,13 @@ class UsersController < ApplicationController
       user.fetch
       #@photos = user.photos.map { |photo| photo.images }
       #logger.info @photos
-      @albums = user.albums
-      logger.info "*********************"
-      logger.info @albums
-      logger.info "*********************"
+      #@albums = user.albums
+      logger.info "********************* ALBUMS"
+      logger.info user.albums
+      logger.info "********************* USER"
       logger.info user
-      logger.info "*********************"
+      logger.info "********************* PHOTOS"
+      logger.info user.photos
     end
   end
 
