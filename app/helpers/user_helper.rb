@@ -6,13 +6,13 @@ module UserHelper
 
   def locales
     [
-      {:stockholm => "Stockholm"},
-      {:malmo => "Malmoe"},
-      {:gothenburg => "Gothenburg"},
-      {:oslo => "Oslo"},
-      {:helsinkki => "Helsinkki"},
-      {:singapore => "Singapore"},
-      {:london => "London"}
+      "Stockholm",
+      "Malmoe",
+      "Gothenburg",
+      "Oslo",
+      "Helsinkki",
+      "Singapore",
+      "London"
     ]
   end
 

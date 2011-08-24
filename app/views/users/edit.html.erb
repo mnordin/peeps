@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= f.label :locale %><br />
-    <%= f.select :locale, locales.map{|l| [l.values.to_s, l.keys] } %>
+    <%= f.select :locale, locales.map{|l| [l, l.downcase] } %>
   </div>
 
   <% if @photos %>
