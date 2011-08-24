@@ -13,7 +13,11 @@ class UsersController < ApplicationController
       #@photos = user.photos.map { |photo| photo.images }
       #logger.info @photos
       @albums = user.albums
+      logger.info "*********************"
       logger.info @albums
+      logger.info "*********************"
+      logger.info user
+      logger.info "*********************"
     end
   end
 
