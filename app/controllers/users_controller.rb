@@ -11,6 +11,16 @@ class UsersController < ApplicationController
       user = FbGraph::User.me(session[:fb_access_token])
       user.fetch
       @photos = user.albums.select { |a| a.type == "profile" }.first.photos
+      
+      Rails.logger.info("******** USER ALBUMS")
+      Rails.logger.info(user.albums)
+      
+      Rails.logger.info("******** PROFILE ALBUM")
+      Rails.logger.info(user.albums.select { |a| a.type == "profile" })
+      
+      Rails.logger.info("******** PROFILE PHOTOS")
+      Rails.logger.info(@photos)
+      
     end
   end
 
