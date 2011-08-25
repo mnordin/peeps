@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def get_photos
-    user = FbGraph::User.me("194756060575091|2.AQAEgNohmvog4xXS.3600.1309968000.0-697496456|BTq5p2ZEI7wjujxSQQkbAz1LFJQ")
+    user = FbGraph::User.me("194756060575091|2.AQAQJ-93vSlW6ciE.3600.1314298800.0-697496456|At3MEuyIhmnrIoB5f-1drOxNuUk")
     user.fetch
     render :json => user.picture
   end
