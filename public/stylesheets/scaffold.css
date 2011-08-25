@@ -73,6 +73,7 @@ body, p, ol, ul, td {
     font-size: 18px;
     padding: 10px;
     border-left: 4px solid #DD3920;
+    z-index: 1000;
 }
 #logo{
     padding-top: 35px;
