@@ -11,11 +11,7 @@
 <%= yield %>
 
 <div class="session">
-    <h4>session:</h4>
-    <pre>
-        <%= session.inspect %>
-        <%= link_to "Töm session", sessions_destroy_path %>
-    </pre>
+    <%= link_to "Töm session", sessions_destroy_path %>
 </div>
 </body>
 </html>

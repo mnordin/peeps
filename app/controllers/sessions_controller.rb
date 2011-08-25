@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def callback
-    clear_old_session
     if request.env["omniauth.auth"]
       google_apps_callback if params[:provider] == "google_apps"
       facebook_callback if params[:provider] == "facebook"
@@ -29,6 +28,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:user] = nil
+    session[:fb_access_token] = nil
     redirect_to root_path
   end
 
@@ -42,12 +43,4 @@ class SessionsController < ApplicationController
     end
     return true
   end
-
-  # note: this method is only needed until all the current users have refreshed their cookies
-  def clear_old_session
-    unless session[:user].blank?
-      session[:user] = nil
-    end
-  end
-
 end
