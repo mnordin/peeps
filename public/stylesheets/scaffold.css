@@ -57,6 +57,7 @@ body, p, ol, ul, td {
 }
 .index-photos{
     margin: 20px 0 0 20px;
+    position: relative;
 }
 #game-sidebar{
     position: fixed;
@@ -105,10 +106,17 @@ body, p, ol, ul, td {
 .ui-draggable-dragging{
     box-shadow: 0 0 10px #000;
 }
-#peeps li li.correct{
-    background: green;
-    padding: 2px;
-    color: #000;
-    width: auto;
-    display: inline;
+
+.correct{
+    position: absolute;
+    width: 256px;
+    height: 256px;
+    background: url("/images/thumbs-up.png") no-repeat 0 0;
+    z-index: 101;
+    top:0;
+    left:0;
+}
+#game-sidebar li.sticky{
+    position: absolute;
+    z-index: 2;
 }

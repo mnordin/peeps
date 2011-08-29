@@ -4,13 +4,17 @@ if(!Peeps){
 };
 
 Peeps.game = (function(){
-    var setup = function(parent){
-        parent.imagesLoaded(function(){
-            parent.masonry({
+    var fadeOutTimer = 1000;
+    var setup = function(){
+        $("#peeps").imagesLoaded(function(){
+            $("#peeps").masonry({
                 itemSelector : 'li',
                 columnWidth : 20
             });
         });
+    };
+    var reloadMasonry = function(){
+        $("#peeps").masonry("reload");
     };
     var init = function(){
         $(".ui-draggable").draggable({
@@ -25,12 +29,18 @@ Peeps.game = (function(){
                     if($drop.data("name") !== $drag.html()){
                         $drag.addClass("incorrect");
                     }else{
-                        $drag.addClass("correct");
-                        $(this).after($drag.css({
-                            zIndex: 10,
-                            top: $(this).position().top + $(this).height()/2 - $drag.height()/2,
-                            left: $(this).position().left + $(this).width()/2 - $drag.width()/2
-                        }).draggable("destroy"));
+                        $drop.draggable("destroy");
+                        $('<div class="correct"></div>').css({
+                            top: $drop.position().top + $drop.height() / 2 - 128,
+                            left: $drop.position().left + $drop.width() / 2 - 128
+                        }).insertAfter(event.target);
+                        $drag.fadeOut(fadeOutTimer, function(){
+                            $(this).remove();
+                        });
+                        $(this).parent("li").fadeOut(fadeOutTimer, function(){
+                            $(this).remove();
+                            reloadMasonry();
+                        });
                     }
                 }
             });
@@ -51,6 +61,6 @@ Peeps.game = (function(){
     };
 })();
 $(document).ready(function(){
-    Peeps.game.setup($('#peeps'));
+    Peeps.game.setup();
     Peeps.game.init();
 });
