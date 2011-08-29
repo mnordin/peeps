@@ -94,29 +94,24 @@ body, p, ol, ul, td {
     -webkit-border-radius: 15px;
     border-radius: 15px;
 }
-#game-sidebar li.incorrect{
-    background: red;
-}
-#game-sidebar li.correct{
-    background: green;
-}
 .ui-draggable{
     cursor: move;
 }
 .ui-draggable-dragging{
     box-shadow: 0 0 10px #000;
 }
-
+.incorrect,
 .correct{
     position: absolute;
     width: 256px;
     height: 256px;
-    background: url("/images/thumbs-up.png") no-repeat 0 0;
     z-index: 101;
     top:0;
     left:0;
 }
-#game-sidebar li.sticky{
-    position: absolute;
-    z-index: 2;
+.correct{
+    background: url("/images/thumbs-up.png") no-repeat 0 0;
+}
+.incorrect{
+    background: url("/images/thumbs-down.png") no-repeat 0 0;
 }

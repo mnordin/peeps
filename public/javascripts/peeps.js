@@ -27,7 +27,12 @@ Peeps.game = (function(){
                     var $drag = $(ui.draggable),
                         $drop = $(this);
                     if($drop.data("name") !== $drag.html()){
-                        $drag.addClass("incorrect");
+                        $('<div class="incorrect"></div>').css({
+                            top: $drop.position().top + $drop.height() / 2 - 128,
+                            left: $drop.position().left + $drop.width() / 2 - 128
+                        }).insertAfter(event.target).fadeOut(fadeOutTimer, function(){
+                            $(this).remove();
+                        });
                     }else{
                         $drop.draggable("destroy");
                         $('<div class="correct"></div>').css({
