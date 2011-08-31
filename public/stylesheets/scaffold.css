@@ -3,13 +3,14 @@ body {
     background-color: #dfdfdf; 
     color: #000;
 }
-
 body, p, ol, ul, td {
     font-family: "helvetica neue", helvetica, arial, sans-serif;
     font-size:   13px;
     line-height: 30px;
 }
-
+body.users-edit{
+    background:#fff;
+}
 #page-wrapper{
     margin-right: 240px;
 }
