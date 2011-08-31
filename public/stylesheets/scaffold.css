@@ -12,7 +12,7 @@ body.users-edit{
     background:#fff;
 }
 #page-wrapper{
-    margin-right: 240px;
+    margin-right: 220px;
 }
 
 #notice {
@@ -63,7 +63,7 @@ body.users-edit{
     top: 0;
     right: 0;
     height: 100%;
-    width: 220px;
+    width: 180px;
     background: #fff;
     padding: 10px;
     border-left: 4px solid #DD3920;
@@ -72,9 +72,9 @@ body.users-edit{
 #logo{
     float:right;
     clear:both;
-    padding-top: 35px;
+    padding-top: 25px;
     height: 40px;
-    width:220px;
+    width:180px;
     background: url(/images/mynewsdesk.png) no-repeat 0 0;
     text-align: right;
 }
