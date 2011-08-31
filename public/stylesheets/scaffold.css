@@ -133,9 +133,6 @@ body.users-edit{
     -webkit-border-radius:5px;
     border-radius:5px;
 }
-#edit #content{
-    margin:20px;
-}
 .row{
     width:560px;
     float:left;
@@ -162,5 +159,9 @@ body.users-edit{
     margin-left:10px;
 }
 .facebook{
-    font-size: 14px;
+    font-weight:bold;
+}
+.edit-photo{
+    float:left;
+    clear:both;
 }

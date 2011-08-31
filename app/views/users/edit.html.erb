@@ -33,7 +33,7 @@
 
       <% if @photos %>
           <% @photos.each do |photo| %>
-            <label>
+            <label class="edit-photo">
                 <%= f.radio_button :photo_url, photo.source %>
                 <%= image_tag photo.source %>
             </label>
