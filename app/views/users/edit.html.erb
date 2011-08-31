@@ -39,7 +39,7 @@
             </label>
           <% end %>
       <% else %>
-        <%= link_to "Get images from Facebook", provider_callback_path(:provider => "facebook"), :class => "facebook" %>
+        <%= link_to "Get images from Facebook", "/auth/facebook", :class => "facebook" %>
       <% end %>
 
       <div class="actions">
