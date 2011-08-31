@@ -36,10 +36,10 @@ class SessionsController < ApplicationController
   private
 
   def restrict_blocked_google_accounts
-    blocked_accounts = %w(kundtjanst teknisk-support)
+    blocked_accounts = %w(kundtjanst teknisk-support globalmarketing)
     username = request.env["omniauth.auth"]["user_info"]["email"].split("@").first
     if blocked_accounts.include?(username)
-      redirect_to root_path
+      render :text => "You can't use that Google Account, please use your personal account"
     end
     return true
   end

@@ -23,12 +23,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def get_photos
-    user = FbGraph::User.me("194756060575091|2.AQAQJ-93vSlW6ciE.3600.1314298800.0-697496456|At3MEuyIhmnrIoB5f-1drOxNuUk")
-    user.fetch
-    render :json => user.picture
-  end
-
   private
   def require_authed_user
     redirect_to "/auth/google_apps" if session[:user_id].nil?

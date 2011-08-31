@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   end
 
   def photo?
-    !photo_url.nil?
+    photo_url.present?
   end
 
   def photo
