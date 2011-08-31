@@ -6,7 +6,7 @@ body {
 
 body, p, ol, ul, td {
     font-family: "helvetica neue", helvetica, arial, sans-serif;
-    font-size:   24px;
+    font-size:   13px;
     line-height: 30px;
 }
 
@@ -37,7 +37,6 @@ body, p, ol, ul, td {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
@@ -45,7 +44,6 @@ body, p, ol, ul, td {
 }
 
 #error_explanation ul li {
-    font-size: 12px;
     list-style: square;
 }
 #peeps li {
@@ -66,7 +64,6 @@ body, p, ol, ul, td {
     height: 100%;
     width: 220px;
     background: #fff;
-    font-size: 18px;
     padding: 10px;
     border-left: 4px solid #DD3920;
     z-index: 1000;
@@ -84,7 +81,6 @@ body, p, ol, ul, td {
     display: inline-block;
     margin-bottom: 5px;
     color: #000;
-    font-size: 13px;
     line-height: 13px;
     font-weight: bold;
     list-style: none;
@@ -117,4 +113,50 @@ body, p, ol, ul, td {
 }
 .hide{
     display: none;
+}
+
+#edit{
+    position: absolute;
+    z-index: 200;
+    top: 40px;
+    left: 50%;
+    margin-left:-275px;
+    width: 600px;
+    height: 530px;
+    background: #fff;
+    border: 10px solid #DD3920;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+#edit #content{
+    margin:20px;
+}
+.row{
+    width:560px;
+    float:left;
+    clear:left;
+}
+.row .field{
+    width: 260px;
+    float:left;
+}
+#edit input[type=text]{
+    width:250px;
+    padding:5px;
+    -webkit-border-radius:4px;
+    border:1px solid #666;
+}
+#edit input[type=text]:focus{
+    border-color: #7DCDEF;
+    box-shadow: 0 0 15px #7DCDEF;
+}
+.row .field.alpha{
+    margin-right:10px;
+}
+.row .field.omega{
+    margin-left:10px;
+}
+.facebook{
+    font-size: 14px;
 }

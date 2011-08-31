@@ -1,55 +1,52 @@
-<h1>Edit user</h1>
+<div id="content">
+    <h2>Edit your profile</h2>
 
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
+      <div class="row">
+          <div class="field alpha">
+            <%= f.label :first_name %><br />
+            <%= f.text_field :first_name %>
+          </div>
   
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
+          <div class="field omega">
+            <%= f.label :last_name %><br />
+            <%= f.text_field :last_name %>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
+      <div class="field">
+        <%= f.label :locale %><br />
+        <%= f.select :locale, locales.map{|l| [l, l.downcase] } %>
+      </div>
 
-  <div class="field">
-    <%= f.label :locale %><br />
-    <%= f.select :locale, locales.map{|l| [l, l.downcase] } %>
-  </div>
-
-  <% if @photos %>
-      <% @photos.each do |photo| %>
-        <label>
-            <%= f.radio_button :photo_url, photo.source %>
-            <%= image_tag photo.source %>
-        </label>
+      <% if @photos %>
+          <% @photos.each do |photo| %>
+            <label>
+                <%= f.radio_button :photo_url, photo.source %>
+                <%= image_tag photo.source %>
+            </label>
+          <% end %>
+      <% else %>
+        <%= link_to "Get images from Facebook", provider_callback_path(:provider => "facebook"), :class => "facebook" %>
       <% end %>
-  <% else %>
-    <%= link_to "Get images from Facebook", "/auth/facebook" %>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-
-
-<%= link_to 'Back', users_path %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+</div>
+<div class="hide">
+    <%= link_to 'Back', users_path %>
+</div>
