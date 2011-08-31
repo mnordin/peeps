@@ -115,3 +115,6 @@ body, p, ol, ul, td {
 .incorrect{
     background: url("/images/thumbs-down.png") no-repeat 0 0;
 }
+.hide{
+    display: none;
+}
