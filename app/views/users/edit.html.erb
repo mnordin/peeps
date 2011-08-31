@@ -1,5 +1,5 @@
-<div id="content">
-    <h2>Edit your profile</h2>
+<h2 id="logo">Peeps!</h2>
+<h2>Edit your profile</h2>
 
     <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
@@ -46,7 +46,4 @@
         <%= f.submit %>
       </div>
     <% end %>
-</div>
-<div class="hide">
-    <%= link_to 'Back', users_path %>
-</div>
+<%= link_to 'Back', users_path %>
