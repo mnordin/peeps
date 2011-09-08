@@ -10,18 +10,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110729132317) do
+ActiveRecord::Schema.define(:version => 20110908130602) do
+
+  create_table "locales", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "code"
+  end
+
+  create_table "offices", :force => true do |t|
+    t.string   "name"
+    t.integer  "locale_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "code"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "photo_url"
-    t.string   "locale"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "number_of_logins"
-    t.integer  "number_of_completed_games"
+    t.integer  "number_of_logins",          :default => 0
+    t.integer  "number_of_completed_games", :default => 0
+    t.datetime "last_logged_in"
+    t.integer  "office_id"
+    t.string   "fb_access_token"
   end
 
 end
