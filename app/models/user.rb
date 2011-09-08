@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  belongs_to :office
   validates :email, :presence => true, :uniqueness => true
 
   def name
