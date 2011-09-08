@@ -7,8 +7,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(session[:user_id])
-    if session[:fb_access_token]
-      user = FbGraph::User.me(session[:fb_access_token])
+    if @user.fb_access_token
+      user = FbGraph::User.me(@user.fb_access_token)
       user.fetch
       @photos = user.albums.select{ |a| a.type == "profile" }.first.photos
     end

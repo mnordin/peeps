@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def facebook_callback
-    session[:fb_access_token] = request.env["omniauth.auth"]["credentials"]["token"]
+    User.find(session[:user_id]).update_attribute(:fb_access_token, request.env["omniauth.auth"]["credentials"]["token"])
     redirect_to edit_your_user_path
   end
 
