@@ -2,10 +2,18 @@ class UsersController < ApplicationController
   before_filter :require_authed_user
 
   def index
-    @users = User.all.sort_by { rand }
+    @locales = Locale.all
+    #if params[:locale].present?
+    #  @users = Locale.find_by_code(params[:locale]).offices.map(&:users).flatten.sort_by { rand }
+    if params[:office].present?
+      @users = Office.find_by_code(params[:office]).users.sort_by { rand }
+    else
+      @users = User.all.sort_by { rand }
+    end
   end
 
   def edit
+    @locales = Locale.all
     @user = User.find(session[:user_id])
     if @user.fb_access_token
       user = FbGraph::User.me(@user.fb_access_token)

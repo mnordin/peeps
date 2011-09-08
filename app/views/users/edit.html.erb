@@ -27,8 +27,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :locale %><br />
-        <%= f.select :locale, locales.map{|l| [l, l.downcase] } %>
+        <%= f.label :office %><br />
+        <%= f.select :office_id, Office.all.collect {|o| [ o.name, o.id ] } %>
       </div>
 
       <% if @photos %>
