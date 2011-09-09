@@ -15,20 +15,25 @@
       <% end %>
 
       <div class="row">
-          <div class="field alpha">
-            <%= f.label :first_name %><br />
-            <%= f.text_field :first_name %>
+          <div class="field">
+                <%= f.label :first_name %><br />
+                <%= f.text_field :first_name %>
           </div>
-  
-          <div class="field omega">
-            <%= f.label :last_name %><br />
-            <%= f.text_field :last_name %>
+      </div>
+    
+      <div class="row">
+          <div class="field">
+                <%= f.label :last_name %><br />
+                <%= f.text_field :last_name %>
+              </div>
           </div>
       </div>
 
-      <div class="field">
-        <%= f.label :office %><br />
-        <%= f.select :office_id, Office.all.collect {|o| [ o.name, o.id ] } %>
+      <div class="row">
+          <div class="field">
+            <%= f.label :office %><br />
+            <%= f.select :office_id, Office.all.collect {|o| [ o.name, o.id ] } %>
+          </div>
       </div>
 
       <div class="photo-wrapper">
