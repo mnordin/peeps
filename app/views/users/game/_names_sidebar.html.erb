@@ -7,10 +7,6 @@
     <p> or <%= link_to "all", root_path %></p>
 <% end %>
 
-<p id="notice">
-    <%= notice %>
-</p>
-
 <% form_tag submit_score_path, :method => :post, :id => "submit-score", :class => "hide" do %>
     <%= hidden_field_tag "score[user_id]", session[:user_id] %>
     <%= hidden_field_tag "score[office_id]", params[:office].present? ? Office.find_by_code(params[:office]).id : 0 %>
