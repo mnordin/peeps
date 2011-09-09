@@ -1,19 +1,36 @@
-<div id="win" class="hide">
+<div id="win" class="hidee">
     <div class="win-wrapper">
-        <h2>Highfive!<br/>You did it!</h2>
+        <h2>Highfive!</h2>
         <% if params[:office].present? %>
             <h3>You finished the <%= Office.find_by_code(params[:office]).name %> office!</h3>
         <% else %>
-            <h3>You finished everyone!</h3>
+            <p>You finished everyone!</p>
         <% end %>
         
         <div class="score">
-            <h3>Your score</h3>
+            <h3>Your score: <span class="total_score">0</span></h3>
             <p>Correct peeps: <span class="correct_peeps">0</span></p>
             <p>Incorrect peeps: <span class="incorrect_peeps">0</span></p>
+            
+            <h3 class="space-top">Highscore</h3>
+            <table class="highscore">
+                <thead>
+                    <tr>
+                        <th align="left" class="th_name">Name</th>
+                        <th align="right" class="th_score">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @highscores.each do |highscore| %>
+                        <tr>
+                            <td align="left"><%= image_tag highscore.user.photo, :class => "avatar" %> <%= highscore.user.name %></td>
+                            <td align="right"><%= highscore.total_score %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
         </div>
         
-        <h3>Highscore coming soon!</h3>
-        <h3><%= link_to "Play again?", root_path %>
+        <%= link_to "Play again?", root_path %>
     </div>
 </div>
