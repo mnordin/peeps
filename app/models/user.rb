@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :office
+  has_many :scores, :dependent => :destroy
   validates :email, :presence => true, :uniqueness => true
 
   def name
