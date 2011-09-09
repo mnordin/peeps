@@ -5,4 +5,5 @@ class Score < ActiveRecord::Base
   #validates :office - office with 0 is a global game
   validates :user, :presence => true
   validates :correct_peeps, :presence => true
+
 end

@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def index
     @locales = Locale.all
+    @highscores = highscores
+    Rails.logger.info("********#{@highscores}")
+    
     #if params[:locale].present?
     #  @users = Locale.find_by_code(params[:locale]).offices.map(&:users).flatten.sort_by { rand }
     if params[:office].present?
@@ -34,5 +37,13 @@ class UsersController < ApplicationController
   private
   def require_authed_user
     redirect_to "/auth/google_apps" if session[:user_id].nil?
+  end
+
+  def highscores
+    if params[:office].present?
+      Score.where(:office_id => Office.find_by_code(params[:office]).id).order("total_score desc, created_at asc").limit(5)
+    else
+      Score.order("total_score desc, created_at asc").limit(5)
+    end
   end
 end

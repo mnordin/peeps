@@ -4,7 +4,7 @@ if(!Peeps){
 };
 
 Peeps.game = (function(){
-    var fadeOutTimer = 1000;
+    var fadeOutTimer = 750;
     var setup = function(){
         $("#peeps").imagesLoaded(function(){
             $("#peeps").masonry({
@@ -16,17 +16,10 @@ Peeps.game = (function(){
         $("form#submit-score").submit(function(evt){
             evt.preventDefault();
             var form = $(this);
-            console.log(form.serialize());
             $.ajax({
                 type: 'POST',
                 data: form.serialize(),
                 url: form.attr("action"),
-                success: function(data){
-                    console.log("success! data: " + data);
-                },
-                error: function(data){
-                    console.log("error! data: " + data);
-                },
                 dataType: "json"
             });
         });
@@ -91,15 +84,21 @@ Peeps.game = (function(){
         $("body").addClass("playing");
     };
     var submitScore = function(){
+        var correct = parseInt($("input#score_correct_peeps").val());
+        var incorrect = parseInt($("input#score_incorrect_peeps").val());
+        $("input#score_total_score").val(correct - incorrect);
         $("form#submit-score input[type=submit]").click();
     };
     var quit = function(){
         $("body").removeClass("playing");
     };
     var showWinning = function(){
-        $("#win").show();
-        $("#win .correct_peeps").html($("input#score_correct_peeps").val());
-        $("#win .incorrect_peeps").html($("input#score_incorrect_peeps").val());
+        var correct = parseInt($("input#score_correct_peeps").val());
+        var incorrect = parseInt($("input#score_incorrect_peeps").val());
+        $("#win").fadeIn(fadeOutTimer);
+        $("#win .correct_peeps").html(correct);
+        $("#win .incorrect_peeps").html(incorrect);
+        $("#win .total_score").html(correct - incorrect);
     };
     return{
         setup: setup,

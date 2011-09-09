@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110909071354) do
+ActiveRecord::Schema.define(:version => 20110909085528) do
 
   create_table "locales", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110909071354) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "incorrect_peeps"
+    t.integer  "total_score",     :default => 0
   end
 
   create_table "users", :force => true do |t|
