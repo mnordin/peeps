@@ -195,6 +195,7 @@ input#user_submit{
     font-size:40px;
 }
 .photo-wrapper{
+    clear:both;
     overflow:hidden;
     margin-top:20px;
 }
