@@ -31,16 +31,18 @@
         <%= f.select :office_id, Office.all.collect {|o| [ o.name, o.id ] } %>
       </div>
 
-      <% if @photos %>
-          <% @photos.each do |photo| %>
-            <label class="edit-photo">
-                <%= f.radio_button :photo_url, photo.source %>
-                <%= image_tag photo.source %>
-            </label>
+      <div class="photo-wrapper">
+          <% if @photos %>
+              <% @photos.each do |photo| %>
+                <label class="edit-photo">
+                    <%= f.radio_button :photo_url, photo.source %>
+                    <%= image_tag photo.source %>
+                </label>
+              <% end %>
+          <% else %>
+            <%= link_to "Get images from Facebook", "/auth/facebook", :class => "facebook" %>
           <% end %>
-      <% else %>
-        <%= link_to "Get images from Facebook", "/auth/facebook", :class => "facebook" %>
-      <% end %>
+      </div>
 
       <div class="actions">
         <%= f.submit %>

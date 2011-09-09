@@ -171,9 +171,12 @@ img.avatar{
 }
 .edit-photo{
     float:left;
-    clear:both;
+    margin-right:40px;
 }
-
+.photo-wrapper{
+    overflow:hidden;
+    margin-top:20px;
+}
 #win{
     position:absolute;
     top:0;
