@@ -3,6 +3,10 @@ body {
     background-color: #dfdfdf; 
     color: #000;
 }
+a{
+    color:#000;
+    font-weight:bold;
+}
 body, p, ol, ul, td {
     font-family: "helvetica neue", helvetica, arial, sans-serif;
     font-size:   13px;
@@ -208,7 +212,7 @@ img.avatar{
     margin-bottom:0;
 }
 #win .score{
-    background:#E25224;
+    background:rgba(200, 70, 40, .9);
     padding:10px 30px;
     margin-top:10px;
     color:#000;
