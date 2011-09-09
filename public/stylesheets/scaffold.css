@@ -165,3 +165,46 @@ body.users-edit{
     float:left;
     clear:both;
 }
+
+#win{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image: url(/images/explosion.gif);
+    background-size: 100%;
+    background-origin: content;
+    z-index:9001;
+    color:#fff;
+    font-weight:bold;
+}
+#win .win-wrapper{
+    width:700px;
+    margin:50px auto;
+}
+#win h2{
+    font-size:125px;
+    text-align:center;
+    line-height:120px;
+}
+#win h3{
+    font-size:40px;
+    line-height:50px;
+}
+#win h2, #win h3{
+    margin-bottom:20px;
+}
+#win .score h3{
+    margin-bottom:0;
+}
+#win .score{
+    background:#000;
+    padding:10px 30px;
+    margin-bottom:10px;
+    text-align:center;
+}
+#win p{
+    font-size:30px;
+    line-height:40px;
+}

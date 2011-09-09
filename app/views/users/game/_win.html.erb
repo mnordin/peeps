@@ -1,0 +1,19 @@
+<div id="win" class="hide">
+    <div class="win-wrapper">
+        <h2>Highfive!<br/>You did it!</h2>
+        <% if params[:office].present? %>
+            <h3>You finished the <%= Office.find_by_code(params[:office]).name %> office!</h3>
+        <% else %>
+            <h3>You finished everyone!</h3>
+        <% end %>
+        
+        <div class="score">
+            <h3>Your score</h3>
+            <p>Correct peeps: <span class="correct_peeps">0</span></p>
+            <p>Incorrect peeps: <span class="incorrect_peeps">0</span></p>
+        </div>
+        
+        <h3>Highscore coming soon!</h3>
+        <h3><%= link_to "Play again?", root_path %>
+    </div>
+</div>

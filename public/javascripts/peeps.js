@@ -68,6 +68,7 @@ Peeps.game = (function(){
                             // submit score if there are no more users left
                             if($(".ui-droppable").length === 0){
                                 submitScore();
+                                showWinning();
                             }
                         });
                     }
@@ -94,6 +95,11 @@ Peeps.game = (function(){
     };
     var quit = function(){
         $("body").removeClass("playing");
+    };
+    var showWinning = function(){
+        $("#win").show();
+        $("#win .correct_peeps").html($("input#score_correct_peeps").val());
+        $("#win .incorrect_peeps").html($("input#score_incorrect_peeps").val());
     };
     return{
         setup: setup,
