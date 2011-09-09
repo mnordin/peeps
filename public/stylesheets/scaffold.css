@@ -207,6 +207,7 @@ input#user_submit{
     background-image: url(/images/team.jpg);
     background-size: 100%;
     background-origin: content;
+    background-repeat:repeat-y;
     z-index:9001;
     color:#000;
     font-weight:bold;
