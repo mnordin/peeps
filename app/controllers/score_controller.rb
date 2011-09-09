@@ -14,9 +14,9 @@ class ScoreController < ApplicationController
 
   def highscore
     if params[:office] == "all"
-      scores = Score.order("total_score desc, created_at asc").limit(5)
+      scores = Score.order("total_score desc, created_at desc").limit(5)
     else
-      scores = Score.where(:office_id => Office.find_by_code(params[:office]).id).order("total_score desc,  created_at asc").limit(5)
+      scores = Score.where(:office_id => Office.find_by_code(params[:office]).id).order("total_score desc,  created_at desc").limit(5)
     end
     highscores_with_users = []
     scores.each do |score|
