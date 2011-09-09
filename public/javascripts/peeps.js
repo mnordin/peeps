@@ -104,7 +104,6 @@ Peeps.game = (function(){
 
     var updateHighscore = function(office){
         $.getJSON("/score/highscore/" + office, function(data) {
-            console.log(data);
             var items = [];
             for(var i = 0; i < data.length; i++){
                 var photo_url = data[i][1].user.photo_url;
