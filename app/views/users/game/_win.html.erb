@@ -2,7 +2,7 @@
     <div class="win-wrapper">
         <h2>Highfive!</h2>
         <% if params[:office].present? %>
-            <h3>You finished the <%= Office.find_by_code(params[:office]).name %> office!</h3>
+            <p>You finished the <%= Office.find_by_code(params[:office]).name %> office!</p>
         <% else %>
             <p>You finished everyone!</p>
         <% end %>
