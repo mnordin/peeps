@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908130602) do
+ActiveRecord::Schema.define(:version => 20110909071354) do
 
   create_table "locales", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20110908130602) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "code"
+  end
+
+  create_table "scores", :force => true do |t|
+    t.integer  "correct_peeps"
+    t.integer  "duration"
+    t.integer  "user_id"
+    t.integer  "office_id",       :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "incorrect_peeps"
   end
 
   create_table "users", :force => true do |t|
