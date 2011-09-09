@@ -10,7 +10,7 @@
 
 <%= yield %>
 
-<%= link_to "Töm session", sessions_destroy_path %>
-<span id="office-from-param" class="hide"><%= params[:office] || "all" %></span>
+<%= link_to "Töm session", sessions_destroy_path, :class => "hide" %>
+<span id="office-from-param" class="hide"><%= params[:office].blank? ? "all" : params[:office] %></span>
 </body>
 </html>
