@@ -22,7 +22,7 @@
 <% end %>
 
 <ul id="names">
-<% @users.each do |user| %>
+<% @users.sort_by{rand}.each do |user| %>
     <% if user.photo? %>
     <li class="ui-draggable"><%= user.name %></li>
     <% end %>

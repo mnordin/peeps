@@ -12,4 +12,17 @@ class ScoreController < ApplicationController
     end
   end
 
+  def highscore
+    if params[:office] == "all"
+      scores = Score.order("total_score desc, created_at asc").limit(5)
+    else
+      scores = Score.where(:office_id => Office.find_by_code(params[:office]).id).order("total_score desc,  created_at asc").limit(5)
+    end
+    highscores_with_users = []
+    scores.each do |score|
+      highscores_with_users << [score, score.user]
+    end
+    render :json => highscores_with_users, :layout => false
+  end
+
 end

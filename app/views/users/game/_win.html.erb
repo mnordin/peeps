@@ -21,12 +21,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% @highscores.each do |highscore| %>
-                        <tr>
-                            <td align="left"><%= image_tag highscore.user.photo, :class => "avatar" %> <%= highscore.user.name %></td>
-                            <td align="right"><%= highscore.total_score %></td>
-                        </tr>
-                    <% end %>
                 </tbody>
             </table>
         </div>

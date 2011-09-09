@@ -99,6 +99,21 @@ Peeps.game = (function(){
         $("#win .correct_peeps").html(correct);
         $("#win .incorrect_peeps").html(incorrect);
         $("#win .total_score").html(correct - incorrect);
+        updateHighscore($("#office-from-param").html());
+    };
+
+    var updateHighscore = function(office){
+        $.getJSON("/score/highscore/" + office, function(data) {
+            console.log(data);
+            var items = [];
+            for(var i = 0; i < data.length; i++){
+                var photo_url = data[i][1].user.photo_url;
+                var name = data[i][1].user.first_name + " " + data[i][1].user.last_name;
+                var total_score = data[i][0].score.total_score;
+                items.push('<tr><td align="left"><img src="' + photo_url + '" class="avatar" />' + name + '</td><td align="right">' + total_score + '</td></tr>');
+            };
+            $(items.join('')).appendTo("table.highscore tbody");
+        });
     };
     return{
         setup: setup,

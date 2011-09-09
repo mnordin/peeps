@@ -1,6 +1,8 @@
 Peeps::Application.routes.draw do
-  get "score/index"
 
+  get "score/index"
+  #get "score/highscores/", :as => "highscore"
+  match "/score/highscore/:office", :controller => "score", :action => "highscore", :as => "highscore"
   post "score/create", :as => "submit_score"
 
   resources :users
