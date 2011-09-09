@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  finished_peeps: 1
+  duration: 1
+  user: 
+  office: 
+
+two:
+  finished_peeps: 1
+  duration: 1
+  user: 
+  office: 

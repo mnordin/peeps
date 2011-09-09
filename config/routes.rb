@@ -1,4 +1,8 @@
 Peeps::Application.routes.draw do
+  get "score/index"
+
+  post "score/create", :as => "submit_score"
+
   resources :users
   match "/users/me/edit" => "users#edit", :as => "edit_your_user"
   match "/users/" => "users#index", :as => "change_game_locale"
