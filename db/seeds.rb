@@ -10,6 +10,6 @@ Office.create(:name => "Gothenburg", :locale => Locale.find_by_name("Sweden"), :
 Office.create(:name => "Malmoe", :locale => Locale.find_by_name("Sweden"), :code => "ma")
 Office.create(:name => "Oslo", :locale => Locale.find_by_name("Norway"), :code => "os")
 Office.create(:name => "Copenhagen", :locale => Locale.find_by_name("Denmark"), :code => "co")
-Office.create(:name => "Helsinkki", :locale => Locale.find_by_name("Sweden"), :code => "he")
+Office.create(:name => "Helsinkki", :locale => Locale.find_by_name("Finland"), :code => "he")
 Office.create(:name => "Singapore", :locale => Locale.find_by_name("Singapore"), :code => "sg")
 Office.create(:name => "London", :locale => Locale.find_by_name("England"), :code => "ln")
