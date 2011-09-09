@@ -166,12 +166,33 @@ img.avatar{
 .row .field.omega{
     margin-left:10px;
 }
-.facebook{
-    font-weight:bold;
+.edit-user{
+    margin:40px;
+}
+.facebook-info{
+    width:600px;
+    background:#ccc;
+    padding:8px 10px;
+}
+.facebook-info p{
+    line-height:19px;
+}
+.facebook-info a{
+    padding-top:10px;
 }
 .edit-photo{
     float:left;
     margin-right:40px;
+}
+.facebook-link{
+    font-size:20px;
+}
+input#user_submit{
+    margin-top:20px;
+    width:400px;
+    margin-left:20px;
+    height:100px;
+    font-size:40px;
 }
 .photo-wrapper{
     overflow:hidden;

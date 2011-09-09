@@ -1,6 +1,6 @@
 <h2 id="logo">Peeps!</h2>
-<h2>Edit your profile</h2>
-
+<div class="edit-user">
+    <h2>Edit your profile</h2>
     <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -40,7 +40,10 @@
                 </label>
               <% end %>
           <% else %>
-            <%= link_to "Get images from Facebook", "/auth/facebook", :class => "facebook" %>
+            <div class="facebook-info">
+                <p>You must choose an image before you show up in the game. Please click the link below and allow the Facebook application to sync with your Facebook user information. After validation you will be redirected back here and you can choose your image from your profile album.</p>
+                <%= link_to "Get images from Facebook", "/auth/facebook", :class => "facebook-link" %>
+            </div>
           <% end %>
       </div>
 
@@ -48,4 +51,5 @@
         <%= f.submit %>
       </div>
     <% end %>
-<%= link_to 'Back', users_path %>
+    <%= link_to 'Back to the game (dont change anything)', users_path %>
+</div>
