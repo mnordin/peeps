@@ -225,10 +225,11 @@ img.avatar{
 }
 table.highscore{
     margin:0 auto;
-    width:50%;
-}
-table th{
+    width:70%;
     font-size:16px;
+}
+table td{
+    font-size:20px;
 }
 table th.th_name{
     width:80%;
