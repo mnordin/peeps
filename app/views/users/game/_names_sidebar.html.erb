@@ -1,7 +1,7 @@
 <h2 id="logo">Peeps!</h2>
 <%= link_to "Edit your profile", edit_your_user_path %>
-<% form_tag change_game_locale_path, :method => :get do %>
-    <%= label_tag "locale", "Change" %>
+<% form_tag change_game_locale_path, :method => :get, :id => "change-office" do %>
+    <%= label_tag "office", "Change" %>
     <%= select_tag("office", option_groups_from_collection_for_select(@locales, :offices, :name, :code, :name, params[:office])) %>
     <%= submit_tag "Change", :class => "hide" %>
     <p> or <%= link_to "all", root_path %></p>
@@ -10,6 +10,20 @@
 <p id="notice">
     <%= notice %>
 </p>
+
+<% form_tag submit_score_path, :method => :post, :id => "submit-score", :class => "hide" do %>
+    <%= hidden_field_tag "score[user_id]", session[:user_id] %>
+    <%= hidden_field_tag "score[office_id]", params[:office].present? ? Office.find_by_code(params[:office]).id : 0 %>
+    
+    <%# hidden_field_tag "start-time", Time.now %>
+
+    <%# field values below are changed using javascript %>
+    <%= hidden_field_tag "score[duration]", 0 %>
+    <%= hidden_field_tag "score[correct_peeps]", 0 %>
+    <%= hidden_field_tag "score[incorrect_peeps]", 0 %>
+    <%= submit_tag "Submit score" %>
+<% end %>
+
 <ul id="names">
 <% @users.each do |user| %>
     <% if user.photo? %>
