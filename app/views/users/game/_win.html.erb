@@ -1,18 +1,15 @@
 <div id="win" class="hide">
     <div class="win-wrapper">
-        <h2>Highfive!</h2>
-        <% if params[:office].present? %>
-            <p>You finished the <%= Office.find_by_code(params[:office]).name %> office!</p>
-        <% else %>
-            <p>You finished everyone!</p>
-        <% end %>
-        
+        <h2>High five!</h2>
         <div class="score">
             <h3>Your score: <span class="total_score">0</span></h3>
             <p>Correct peeps: <span class="correct_peeps">0</span></p>
             <p>Incorrect peeps: <span class="incorrect_peeps">0</span></p>
-            
-            <h3 class="space-top">Highscore</h3>
+            <% if params[:office].present? %>
+                <h3>Highscore <%= Office.find_by_code(params[:office]).name %></h3>
+            <% else %>
+                <h3 class="space-top">Highscore Global</h3>
+            <% end %>
             <table class="highscore">
                 <thead>
                     <tr>

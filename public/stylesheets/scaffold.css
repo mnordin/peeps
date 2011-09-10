@@ -228,7 +228,7 @@ input#user_submit{
 }
 #win .win-wrapper{
     width:700px;
-    margin:20px auto;
+    margin:40px auto 0;
     text-shadow:none;
 }
 #win h2{
