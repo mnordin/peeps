@@ -135,6 +135,11 @@ img.avatar{
 .hide{
     display: none;
 }
+#preloader{
+    height:1px;
+    width:1px;
+    visibility:hidden;
+}
 
 #edit{
     position: absolute;
