@@ -109,7 +109,7 @@ Peeps.game = (function(){
                 var photo_url = data[i][1].user.photo_url;
                 var name = data[i][1].user.first_name + " " + data[i][1].user.last_name;
                 var total_score = data[i][0].score.total_score;
-                items.push('<tr><td align="left"><img src="' + photo_url + '" class="avatar" />' + name + '</td><td align="right">' + total_score + '</td></tr>');
+                items.push('<tr><td align="left"><div class="avatar-wrapper"><img src="' + photo_url + '" class="avatar" /></div><p>' + name + '</p></td><td align="right"><p>' + total_score + '</p></td></tr>');
             };
             $(items.join('')).appendTo("table.highscore tbody");
         });
