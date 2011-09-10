@@ -14,15 +14,15 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by_email(request.env["omniauth.auth"])
     user.update_attributes({
       :number_of_logins => user.number_of_logins + 1,
-      :last_logged_in => Time.now,
-      :fb_access_token => nil # a bug somewhere but haven't the time right now to fix it
+      :last_logged_in => Time.now
     })
     session[:user_id] = user.id
     redirect_to root_path
   end
 
   def facebook_callback
-    User.find(session[:user_id]).update_attribute(:fb_access_token, request.env["omniauth.auth"]["credentials"]["token"])
+    #User.find(session[:user_id]).update_attribute(:fb_access_token, request.env["omniauth.auth"]["credentials"]["token"])
+    session[:fb_access_token] = request.env["omniauth.auth"]["credentials"]["token"]
     redirect_to edit_your_user_path
   end
 

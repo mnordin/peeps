@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @locales = Locale.all
+    session[:fb_access_token] = nil # resets fb_access_token every time the user leaves edit
     if params[:office].present?
       @users = Office.find_by_code(params[:office]).users
     else
@@ -13,8 +14,8 @@ class UsersController < ApplicationController
   def edit
     @locales = Locale.all
     @user = User.find(session[:user_id])
-    if @user.fb_access_token
-      user = FbGraph::User.me(@user.fb_access_token)
+    if session[:fb_access_token].present?
+      user = FbGraph::User.me(session[:fb_access_token])
       user.fetch
       @photos = user.albums.select{ |a| a.type == "profile" }.first.photos
     end
