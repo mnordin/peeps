@@ -139,6 +139,7 @@ img.avatar{
     height:1px;
     width:1px;
     visibility:hidden;
+    overflow:hidden;
 }
 
 #edit{
