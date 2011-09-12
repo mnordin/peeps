@@ -5,6 +5,9 @@
             <h3>Your score: <span class="total_score">0</span></h3>
             <p>Correct peeps: <span class="correct_peeps">0</span></p>
             <p>Incorrect peeps: <span class="incorrect_peeps">0</span></p>
+            <% unless me.photo? %>
+                <p class="highscore-photo-warning">You don't have a photo on your profile, so your score isnt saved. <%= link_to "Choose one now!", edit_your_user_path %></p>
+            <% end %>
             <% if params[:office].present? %>
                 <h3>Highscore <%= Office.find_by_code(params[:office]).name %></h3>
             <% else %>

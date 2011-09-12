@@ -6,10 +6,10 @@ class Score < ActiveRecord::Base
   validates :user, :presence => true
   validates :correct_peeps, :presence => true
 
-  before_create :validate_user_photo
+  before_validation :validate_user_photo
 
-
+  private
   def validate_user_photo
-    User.find(session[:user_id]).photo?
+    user.photo?
   end
 end
