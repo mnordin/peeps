@@ -23,13 +23,28 @@ Peeps.game = (function(){
                 dataType: "json"
             });
         });
+
+        $("a.show-highscore").click(function(e){
+            e.preventDefault();
+            showHighscore();
+        });
     };
     var reloadMasonry = function(){
         $("#peeps").masonry("reload");
     };
     var init = function(){
         $(".ui-draggable").draggable({
-            cursor: "move"
+            cursor: "move",
+            drag: function(event, ui){
+                $(this).clone();
+                $(this).css({visibility:"hidden"});
+            },
+            stop: function(event, ui){
+                $(this).css({visibility:"visible"});
+            },
+            revert: "valid",
+            helper: "clone",
+            revert: true
         });
         $(".ui-droppable").each(function(){
             var name = $(this).data("name");
@@ -47,21 +62,21 @@ Peeps.game = (function(){
                         });
                     }else{
                         correctGuess();
+                        $drag.remove();
+                        $(".ui-draggable-dragging:last").remove();
                         $drop.draggable("destroy");
                         $('<div class="correct"></div>').css({
                             top: $drop.position().top + $drop.height() / 2 - 128,
                             left: $drop.position().left + $drop.width() / 2 - 128
                         }).insertAfter(event.target);
-                        $drag.fadeOut(fadeOutTimer, function(){
-                            $(this).remove();
-                        });
                         $(this).parent("li").fadeOut(fadeOutTimer, function(){
                             $(this).remove();
                             reloadMasonry();
                             // submit score if there are no more users left
                             if($(".ui-droppable").length === 0){
                                 submitScore();
-                                showWinning();
+                                // waits one second to make sure the new score is saved first
+                                setTimeout(showHighscore(),1000);
                             }
                         });
                     }
@@ -92,14 +107,15 @@ Peeps.game = (function(){
     var quit = function(){
         $("body").removeClass("playing");
     };
-    var showWinning = function(){
+    var showHighscore = function(){
         var correct = parseInt($("input#score_correct_peeps").val());
         var incorrect = parseInt($("input#score_incorrect_peeps").val());
         $("#win").fadeIn(fadeOutTimer);
         $("#win .correct_peeps").html(correct);
         $("#win .incorrect_peeps").html(incorrect);
         $("#win .total_score").html(correct - incorrect);
-        updateHighscore($("#office-from-param").html());
+        var office = $("#office-from-param").html();
+        updateHighscore(office);
     };
 
     var updateHighscore = function(office){
