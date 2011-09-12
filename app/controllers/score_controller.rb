@@ -3,7 +3,7 @@ class ScoreController < ApplicationController
     render :json => Score.all, :layout => false
   end
 
-  def create    
+  def create
     @score = Score.new(params[:score])
     if @score.save
       render :json => @score.to_yaml.to_json, :layout => false
