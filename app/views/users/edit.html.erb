@@ -16,22 +16,28 @@
 
       <div class="row">
           <div class="field">
-              <%= f.label :first_name %><br />
+              <div class="label-wrapper">
+                  <%= f.label :first_name %>
+              </div>
               <%= f.text_field :first_name %>
           </div>
       </div>
     
       <div class="row">
           <div class="field">
-              <%= f.label :last_name %><br />
+              <div class="label-wrapper">
+                  <%= f.label :last_name %>
+              </div>
               <%= f.text_field :last_name %>
           </div>
       </div>
 
       <div class="row">
           <div class="field">
-            <%= f.label :office %><br />
-            <%= f.select :office_id, Office.all.collect {|o| [ o.name, o.id ] } %>
+              <div class="label-wrapper">
+                  <%= f.label :office %>
+              </div>
+            <%= f.select(:office_id, option_groups_from_collection_for_select(Locale.all, :offices, :name, :id, :name, @user.office_id)) %>
           </div>
       </div>
 
