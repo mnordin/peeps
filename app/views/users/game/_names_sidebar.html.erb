@@ -20,10 +20,14 @@
     <%= submit_tag "Submit score" %>
 <% end %>
 
-<ul id="names">
-<% @users.sort_by{rand}.each do |user| %>
-    <% if user.photo? %>
-    <li class="ui-draggable"><%= user.name %></li>
+<div id="names-wrapper">
+    <ul id="names">
+    <% @users.sort_by{|u|u.name}.each do |user| %>
+        <% if user.photo? %>
+        <li class="ui-draggable"><%= user.name %></li>
+        <% end %>
     <% end %>
-<% end %>
-</ul>
+    </ul>
+</div>
+
+<a href="#" class="show-highscore">Show highscore</a>

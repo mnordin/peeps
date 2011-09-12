@@ -6,5 +6,11 @@ $(document).ready(function(){
     $("select#office").change(function(){
         $(this).parents("form").submit();
     });
-    
+
+    var namesWrapperOffsetTop = $("#names-wrapper").offset().top;
+    $("#names-wrapper").height($(window).height() - namesWrapperOffsetTop - 40);
+    $(window).resize(function(){
+       $("#names-wrapper").height($(window).height() - namesWrapperOffsetTop - 40);
+    });
+
 });
