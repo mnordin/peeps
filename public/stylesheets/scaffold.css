@@ -142,6 +142,13 @@ img.avatar{
     overflow:hidden;
 }
 
+#warning{
+    background:#DD3920;
+    width:100%;
+    text-align:center;
+    font-weight:bold;
+    padding-left:20px;
+}
 #edit{
     position: absolute;
     z-index: 200;

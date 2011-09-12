@@ -1,4 +1,9 @@
 <div id="page-wrapper">
+    <% unless me.photo? -%>
+        <div id="warning">
+            <p>You need to choose a photo before you show up in the game and can be on the highscore! <%= link_to "Choose one now!", edit_your_user_path %></p>
+        </div>
+    <% end -%>
     <ul id="peeps">
         <% @users.sort_by{rand}.each do |user| %>
             <% if user.photo? %>
