@@ -1,6 +1,6 @@
 <div id="page-wrapper">
     <ul id="peeps">
-        <% @users.each do |user| %>
+        <% @users.sort_by{rand}.each do |user| %>
             <% if user.photo? %>
                 <li>
                     <%= image_tag(user.photo, :alt => user.name, :class => "index-photos ui-droppable", "data-name" => user.name) %>
