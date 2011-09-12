@@ -20,7 +20,9 @@ class ScoreController < ApplicationController
     end
     highscores_with_users = []
     scores.each do |score|
-      highscores_with_users << [score, score.user]
+      if score.user.photo?
+        highscores_with_users << [score, score.user]
+      end
     end
     render :json => highscores_with_users, :layout => false
   end
