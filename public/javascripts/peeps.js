@@ -75,8 +75,8 @@ Peeps.game = (function(){
                             // submit score if there are no more users left
                             if($(".ui-droppable").length === 0){
                                 submitScore();
-                                // waits one second to make sure the new score is saved first
-                                setTimeout(showHighscore(),1000);
+                                // waits three second to make sure the new score is saved first
+                                setTimeout(showHighscore(),3000);
                             }
                         });
                     }
