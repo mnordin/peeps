@@ -5,6 +5,7 @@ if(!Peeps){
 
 Peeps.game = (function(){
     var fadeOutTimer = 750;
+    var timer;
     var setup = function(){
         $("#peeps").imagesLoaded(function(){
             $("#peeps").masonry({
@@ -76,7 +77,7 @@ Peeps.game = (function(){
                             if($(".ui-droppable").length === 0){
                                 submitScore();
                                 // waits three second to make sure the new score is saved first
-                                setTimeout(showHighscore(),3000);
+                                timer = setTimeout(showHighscore(),3000);
                             }
                         });
                     }
@@ -116,6 +117,7 @@ Peeps.game = (function(){
         $("#win .total_score").html(correct - incorrect);
         var office = $("#office-from-param").html();
         updateHighscore(office);
+        clearTimeout(timer);
     };
 
     var updateHighscore = function(office){
