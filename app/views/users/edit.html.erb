@@ -42,7 +42,7 @@
       </div>
 
       <div class="photo-wrapper">
-          <% if @photos %>
+          <% if @photos.present? %>
               <% @photos.each do |photo| %>
                 <label class="edit-photo">
                     <%= f.radio_button :photo_url, photo.source %>
@@ -53,6 +53,9 @@
             <div class="facebook-info">
                 <p>You must choose an image before you show up in the game. Please click the link below and allow the Facebook application to sync with your Facebook user information. After validation you will be redirected back here and you can choose your image from your profile album.</p>
                 <%= link_to "Get images from Facebook", "/auth/facebook", :class => "facebook-link" %>
+                <p>OR</p>
+                <%= f.label :photo_url, "Enter the complete url to an image (ending with .jpg or .png)" %><br/>
+                <%= f.text_field :photo_url %>
             </div>
           <% end %>
       </div>
